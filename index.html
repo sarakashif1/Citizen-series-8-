@@ -28,7 +28,7 @@
     /* Make slider full screen */
     .swiper-2 {
       width: 100%;
-      height: 500px;
+      height: 600px;
     }
 
     .swiper-slide2 {
@@ -42,16 +42,16 @@
     }
     .slide-1 {
       background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv02_pc.jpg"); 
-      height: 500px;
+      height: 600px;
     }
     .slide-2 { 
       background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv04_pc.jpg"); 
-      height: 500px;
+      height: 600px;
     }
 
     .slide-3 { 
       background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv_pc.jpg"); 
-      height: 500px;
+      height: 600px;
     }
 
     /* === Custom Navigation Buttons (Overlay Style) === */
@@ -115,15 +115,35 @@
 </head>
 <body>
     <nav>
-        <div class="nav-bar">
-            <i class="fa-solid fa-bars icon icon-1"></i>
+        <!-- Navbar -->
+  <div class="navbar">
+    <button id="menuBtn" class="menu-btn">&#9776;</button>
+    <!-- Search Icon (Right Side of Navbar) -->
+    <button class="search-btn" id="searchIcon">&#128269;</button>
+  </div>
 
-            <a href="https://www.patek.com/">
-                <i class="fa-light fa-clock icon icon-2"></i>
-            </a>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <button class="close-btn" id="closeBtn2">&times;</button>
+    </div>
 
-            <i class="fa-solid fa-magnifying-glass icon icon-3"></i>
-        </div>
+    <ul class="menu">
+      <li><i>Home</i></li>
+      <li>About</li>
+      <li>Collection</li>
+      <li>Service</li>
+      <li>Museum</li>
+      <li>Points of Sale</li>
+    </ul>
+  </div>
+
+  <!-- Search Dropdown -->
+  <div class="search-dropdown" id="searchDropdown">
+    <!-- Cross Icon inside the dropdown -->
+    <button class="close-btn3" id="closeBtn"></button>
+    <input type="text" placeholder="Search..." id="searchInput">
+  </div>
     </nav>
 
     <header>
@@ -316,4 +336,3 @@
 </body>
 
 </html>
-
