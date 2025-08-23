@@ -92,17 +92,31 @@ function updateDots() {
 
     const items = document.querySelectorAll(".accordion-item");
 
-    items.forEach(item => {
-      const header = item.querySelector(".accordion-header");
-      header.addEventListener("click", () => {
-        item.classList.toggle("active");
+// Get the last opened item from localStorage
+const lastOpened = localStorage.getItem("lastOpenedAccordion");
 
-        // close others
-        items.forEach(i => {
-          if (i !== item) i.classList.remove("active");
-        });
-      });
-    });
+items.forEach((item, index) => {
+  const header = item.querySelector(".accordion-header");
+
+  // Check if this item was the last one opened before refresh
+  if (lastOpened == index) {
+    item.classList.add("active");
+  }
+
+  header.addEventListener("click", () => {
+    // Toggle the active state of the clicked item
+    item.classList.toggle("active");
+
+    // Update localStorage to remember which item is open
+    if (item.classList.contains("active")) {
+      localStorage.setItem("lastOpenedAccordion", index);
+    } else {
+      // If an item is closed, remove it from localStorage
+      localStorage.removeItem("lastOpenedAccordion");
+    }
+  });
+});
+
 
 
 
@@ -146,3 +160,42 @@ const swiperZoom = new Swiper('.swiper-zoom', {
         nextBtn.style.display = "flex";
       }
     }
+
+
+    const searchIcon = document.getElementById("searchIcon");
+    const searchDropdown = document.getElementById("searchDropdown");
+    const closeBtn3 = document.getElementById("closeBtn3");
+
+    // Toggle the search dropdown and change icon when clicked
+    searchIcon.addEventListener("click", () => {
+      if (searchDropdown.style.visibility === "visible") {
+        // Close dropdown
+        searchDropdown.style.top = "-30%"; // Move it back up
+        searchDropdown.style.visibility = "hidden"; // Hide it after the slide up
+        searchDropdown.style.opacity = "0"; // Fade out
+        searchIcon.innerHTML = "&#128269;";
+        closeBtn3.innerHTML= ""
+      } else {
+        // Open dropdown
+        searchDropdown.style.visibility = "visible"; // Make the dropdown visible
+        setTimeout(() => {
+          searchDropdown.style.top = "0"; // Slide it down smoothly
+          searchDropdown.style.opacity = "1"; // Fade in
+        }, 10); // Delay to apply smooth transition
+        searchIcon.innerHTML = "&times;"; // Change icon to cross
+      }
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn2 = document.getElementById("closeBtn2");
+    const sidebar = document.getElementById("sidebar");
+
+    // Open sidebar when menu icon is clicked
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+
+    // Close sidebar when close button inside sidebar is clicked
+    closeBtn2.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+    });
