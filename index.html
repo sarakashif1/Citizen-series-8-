@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCH</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome cdn -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- style.css link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <!-- google fonts cdn -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- Swiper CSS -->
+
+      <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Make slider full screen */
+    .swiper-2 {
+      width: 100%;
+      height: 500px;
+    }
+
+    .swiper-slide2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      color: white;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide-1 {
+      background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv02_pc.jpg"); 
+      height: 500px;
+    }
+    .slide-2 { 
+      background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv04_pc.jpg"); 
+      height: 500px;
+    }
+
+    .slide-3 { 
+      background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_mv_pc.jpg"); 
+      height: 500px;
+    }
+
+    /* === Custom Navigation Buttons (Overlay Style) === */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #000;
+      background:white; /* semi-transparent white */
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      font-size: 12px; /* arrow size */
+      backdrop-filter: blur(4px); /* glass effect */
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: rgba(0, 0, 0, 0.7); /* darker overlay on hover */
+      color: #fff;
+    }
+
+    /* Position adjustments */
+    .swiper-button-prev {
+      left: 20px;
+    }
+
+    .swiper-button-next {
+      right: 20px;
+    }
+
+    /* Remove default Swiper arrows */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      content: "";
+    }
+
+    /* === Custom Pagination Dots === */
+    .swiper-pagination {
+      bottom: 30px !important;
+    }
+
+    .swiper-pagination-bullet {
+      background: #fff;
+      opacity: 0.7;
+      width: 8px;
+      height: 8px;
+    }
+
+    .swiper-pagination-bullet-active {
+      border: 1px solid white;
+      background: transparent;
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+    }
+  </style>
+
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="fa-solid fa-bars icon icon-1"></i>
+
+            <a href="https://www.patek.com/">
+                <i class="fa-light fa-clock icon icon-2"></i>
+            </a>
+
+            <i class="fa-solid fa-magnifying-glass icon icon-3"></i>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-section"></div>
+    </header>
+
+    <main>
+
+      <div id="about">
+
+        <div>
+          <img src="images/Screenshot 2025-08-18 130502.png">
+        </div>
+
+        <div>
+        <h1>CITIZEN</h1>
+          <p>CITIZEN is a watch company that has the capabilities of all its manufacturing in-house, from crafting individual watch components to final assembly. A truly global watch brand, CITIZEN does      business in about 140 market worldwide.</p>
+        </div>
+
+      </div>
+
+
+      <section class="slider">
+      <!-- Slider main container -->
+        <div class="swiper swiper2">
+          <!-- Wrapper -->
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide2 slide-1"></div>
+            <div class="swiper-slide swiper-slide2 slide-2"></div>
+            <div class="swiper-slide swiper-slide2 slide-3"></div>
+          </div>
+
+    <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+
+    <!-- Navigation buttons with Font Awesome Icons -->
+          <div class="swiper-button-prev"><i class="fa-solid fa-arrow-left"></i></div>
+          <div class="swiper-button-next"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </section>
+
+      <section class="gallery">
+        <!-- Left: Main image + button -->
+        <div class="main-container">
+          <img id="main-img" src="https://citizenwatch.widen.net/content/5k5zalembo/png/Series8+890.png?u=41zuoe&width=500&height=625&quality=80">
+
+          <button class="btn-circle" id="viewBtn"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+        </div>
+
+        <!-- Right: Thumbnails -->
+        <div class="thumbnails">
+          <img class="thumb active" src="https://citizenwatch.widen.net/content/5k5zalembo/png/Series8+890.png?u=41zuoe&width=120">
+
+          <img class="thumb" src="https://citizenwatch.widen.net/content/abl4qz5bpz/png/Series8+890.png?u=41zuoe&width=500&height=625&quality=80&crop=false&keep=c&color=FFFFFF00">
+
+          <img class="thumb" src="https://citizenwatch.widen.net/content/ez3z1s2bf6/png/Series8+890.png?u=41zuoe&width=500&height=625&quality=80&crop=false&keep=c&color=FFFFFF00">
+        </div>
+      </section>
+
+      <!-- Modal for slider -->
+      <section id="myModal" class="modal">
+        <button class="btn-circle close" id="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+        <button class="btn-circle prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="modal-img" src="">
+        <button class="btn-circle next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+      </section>
+
+          <!-- Dots (only for mobile) -->
+      <div class="dots" id="dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+
+      <section id="sec-accordian">
+        <div class="container">
+          <h2>TECHNICAL CHARACTERISTICS</h2>
+
+          <div class="accordion">
+            <div class="accordion-item active"> <!-- First open by default -->
+              <div class="accordion-header">
+                DIAL <span class="arrow">&#9662;</span>
+              </div>
+            <div class="accordion-content">
+              <p>Case description here...</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              CASE <span class="arrow">&#9662;</span>
+            </div>
+            <div class="accordion-content">
+              <p>Case description here...</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              GEMSETTING <span class="arrow">&#9662;</span>
+            </div>
+            <div class="accordion-content">
+              <p>Gemsetting details...</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              STRAP <span class="arrow">&#9662;</span>
+            </div>
+            <div class="accordion-content">
+              <p>Strap information...</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              MOVEMENT <span class="arrow">&#9662;</span>
+            </div>
+            <div class="accordion-content">
+              <p>Movement info...</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              INSTRUCTIONS FOR USE <span class="arrow">&#9662;</span>
+            </div>
+            <div class="accordion-content">
+              <p>Instructions...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section class="last-slider">
+        <!-- Slider -->
+  <div class="swiper swiper-zoom">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide swiper-slide1 swiper-slide-active2"><img src="https://images.squarespace-cdn.com/content/v1/5c78138211f784469d4817df/84c2f50d-59b0-40e6-b2d6-c24a44ed5117/Citizen+Series8+7.jpg" alt="Image 1"></div>
+
+      <div class="swiper-slide swiper-slide1 swiper-slide-active1"><img src="https://hodinkee-jp.imgix.net/uploads/images/1315ff55-6a4c-4cd5-bc20-b5f82adc60f1/097A0880--NR.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&ch=Width%2CDPR%2CSave-Data&fit=crop&w=820&dpr=2" alt="Image 2"></div>
+    </div>
+
+    <div class="swiper-button-prev-zoom"><i class="fa-solid fa-arrow-left"></i></div>
+    <div class="swiper-button-next-zoom"><i class="fa-solid fa-arrow-right"></i></div>
+  </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <div>
+      <img src="images/logo_footer.svg" alt="logo">
+      <br>
+      <p>© 2025 CITIZEN WATCH CO., LTD.</p>
+    </div>
+    </footer>
+
+
+
+
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper2', {
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      effect: "slide", // you can change to "slide", "cube", "coverflow", etc.
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>

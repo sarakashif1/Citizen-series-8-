@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Nata Sans", sans-serif;
+}
+
+
+.icon{
+    font-size: xx-large;
+    color: white;
+}
+
+.icon-2{
+    color: goldenrod;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;   /* full width */
+  z-index: 1000; /* keep it above hero */
+}
+
+.nav-bar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  color: white;
+  background-color: transparent;
+}
+
+
+.hero-section{
+    background-image: url("https://www.citizenwatch-global.com/series8/assets/img/top/img_concept_photo02_pc.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    width: 100%;
+}
+
+
+#about{
+   
+    padding: 10% 3%;
+    display: flex;
+    gap: 100px;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    line-height: 40px;
+    font-size: x-large;
+}
+
+#about>div>p{
+    margin-top: 30px;
+}
+
+#about>div>img{
+    width:500px;
+}
+
+@media(max-width:1000px){
+    #about{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 10px;
+    }
+    #about>div>img{
+    width:290px;
+}
+}
+
+@media (max-width: 855px) {
+    #about{
+        flex-wrap: nowrap;
+    }
+
+    #about>div>img{
+        display: none;
+    }
+}
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    /* Main image + button container */
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #main-img {
+      width: 300px;   /* smaller */
+      height: 380px;  /* smaller */
+      object-fit: contain;
+      transition: opacity 0.5s ease;
+      margin-bottom: 12px;
+    }
+
+    /* Common button style */
+    .btn-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;   /* smaller */
+      height: 50px;  /* smaller */
+      border-radius: 50%;
+      background: aliceblue;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: #6b5a3c;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-circle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Thumbnails right side */
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .thumb {
+      width: 80px;   /* smaller */
+      height: 100px; /* smaller */
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+      background: aliceblue;
+      padding: 4px;
+      border-radius: 6px;
+    }
+
+    .thumb:hover {
+      opacity: 0.8;
+    }
+
+    .active {
+      opacity: 1 !important;
+    }
+
+    /* Modal (Slider Mode) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      width: 450px;   /* smaller */
+      height: 550px;  /* smaller */
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 22px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      padding: 12px;
+    }
+
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    .hidden { display: none; }
+
+    /* Dots for mobile */
+.dots {
+  display: none;
+  margin: 10px 0;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 30px;
+}
+.dot.active {
+  background: #6b5a3c;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .thumbnails {
+    display: none; /* hide thumbnails */
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+    #sec-accordian {
+      background: rgba(175, 175, 175, 0.137);
+      padding: 40px;
+      color: #6c5235; /* brownish like your screenshot */
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 equal columns */
+      gap: 40px;
+      max-width: 1200px;
+      align-items: flex-start;
+    }
+
+    h2 {
+      font-size: 35px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .accordion {
+      width: 100%;
+    }
+
+    .accordion-item {
+      border-top: 1px solid #ddd;   /* 👈 added */
+      border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 25px;  /* bigger font */
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .accordion-header:hover {
+      color: #333;
+    }
+
+    .accordion-header .arrow {
+      transition: transform 0.3s ease;
+      font-size: 16px;
+    }
+
+    .accordion-item.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 16px; /* bigger font */
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 300px;
+      padding: 10px 0 20px;
+    }
+
+    @media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* stack in 1 column */
+    gap: 20px;
+  }
+
+  h2 {
+    font-size: 28px; /* thoda chhota mobile pe */
+    text-align: center; /* optional center heading */
+  }
+
+  .accordion-header {
+    font-size: 20px; /* thoda chhota mobile pe */
+  }
+}
+
+
+.last-slider {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin-top: 80px;
+    }
+
+    /* 🔹 outer container unique */
+    .swiper-zoom {
+      width: 100%;
+      padding: 40px 0;
+      position: relative;
+    }
+
+    /* 🔹 default swiper-slide ko style karna */
+    .swiper-zoom .swiper-slide1 {
+      width: 80%;
+      opacity: 0.6;
+      transform: scale(1.1); /* inactive slides thodi badi */
+      transition: opacity 0.6s ease,
+    }
+
+    .swiper-zoom .swiper-slide1 img {
+      width: 100%;
+      height: 800px;
+      object-fit: cover;
+    }
+
+    /* Active slide normal (zoom out effect) */
+    .swiper-zoom .swiper-slide-active1 {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .swiper-zoom .swiper-slide-active2{
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* 🔹 Arrows style */
+    .swiper-button-prev-zoom,
+    .swiper-button-next-zoom {
+      color: #000;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+      position: absolute;
+      z-index: 10;
+    }
+
+    .swiper-button-prev-zoom { left: 8%; }
+    .swiper-button-next-zoom { right: 8%; }
+
+    .swiper-button-prev-zoom::after,
+    .swiper-button-next-zoom::after { display: none; }
+
+    .swiper-button-prev-zoom i,
+    .swiper-button-next-zoom i {
+      font-size: 18px;
+      color: #000;
+    }
+
+@media (max-width:445px) {
+  .swiper-button-prev-zoom,
+  .swiper-button-next-zoom {
+    display: none !important;
+  }
+
+  .swiper-zoom .swiper-slide1 img {
+      height: 500px;
+      object-fit:cover;
+    }
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  align-items: center;
+}
+
+footer div img{
+  margin-bottom: 20px;
+}
