@@ -90,7 +90,8 @@ function updateDots() {
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    const items = document.querySelectorAll(".accordion-item");
+
+const items = document.querySelectorAll(".accordion-item");
 
 // Get the last opened item from localStorage
 const lastOpened = localStorage.getItem("lastOpenedAccordion");
@@ -118,84 +119,135 @@ items.forEach((item, index) => {
 });
 
 
-
-
-
 ///>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
-
 const swiperZoom = new Swiper('.swiper-zoom', {
-      loop: false,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      speed: 700,
-      navigation: {
-        nextEl: '.swiper-button-next-zoom',
-        prevEl: '.swiper-button-prev-zoom',
-      },
-      on: {
-        init: function () {
-          updateArrowsZoom(this);
-        },
-        slideChangeTransitionEnd: function () {
-          updateArrowsZoom(this);
-        }
-      }
-    });
-
-    function updateArrowsZoom(swiper) {
-      const prevBtn = document.querySelector('.swiper-button-prev-zoom');
-      const nextBtn = document.querySelector('.swiper-button-next-zoom');
-
-      if (swiper.activeIndex === 0) {
-        prevBtn.style.display = "none"; 
-        nextBtn.style.display = "flex"; 
-      } else if (swiper.activeIndex === swiper.slides.length - 1) {
-        prevBtn.style.display = "flex"; 
-        nextBtn.style.display = "none"; 
-      } else {
-        prevBtn.style.display = "flex";
-        nextBtn.style.display = "flex";
-      }
+  loop: false,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  speed: 700,
+  navigation: {
+    nextEl: '.swiper-button-next-zoom',
+    prevEl: '.swiper-button-prev-zoom',
+  },
+  on: {
+    init: function () {
+      updateArrowsZoom(this);
+    },
+    slideChangeTransitionEnd: function () {
+      updateArrowsZoom(this);
     }
+  }
+});
+
+function updateArrowsZoom(swiper) {
+  const prevBtn = document.querySelector('.swiper-button-prev-zoom');
+  const nextBtn = document.querySelector('.swiper-button-next-zoom');
+
+  if (swiper.activeIndex === 0) {
+    prevBtn.style.display = "none"; 
+    nextBtn.style.display = "flex"; 
+  } else if (swiper.activeIndex === swiper.slides.length - 1) {
+    prevBtn.style.display = "flex"; 
+    nextBtn.style.display = "none"; 
+  } else {
+    prevBtn.style.display = "flex";
+    nextBtn.style.display = "flex";
+  }
+}
 
 
-    const searchIcon = document.getElementById("searchIcon");
-    const searchDropdown = document.getElementById("searchDropdown");
-    const closeBtn3 = document.getElementById("closeBtn3");
+const searchIcon = document.getElementById("searchIcon");
+const searchDropdown = document.getElementById("searchDropdown");
 
-    // Toggle the search dropdown and change icon when clicked
-    searchIcon.addEventListener("click", () => {
-      if (searchDropdown.style.visibility === "visible") {
-        // Close dropdown
-        searchDropdown.style.top = "-30%"; // Move it back up
-        searchDropdown.style.visibility = "hidden"; // Hide it after the slide up
-        searchDropdown.style.opacity = "0"; // Fade out
-        searchIcon.innerHTML = "&#128269;";
-        closeBtn3.innerHTML= ""
-      } else {
-        // Open dropdown
-        searchDropdown.style.visibility = "visible"; // Make the dropdown visible
-        setTimeout(() => {
-          searchDropdown.style.top = "0"; // Slide it down smoothly
-          searchDropdown.style.opacity = "1"; // Fade in
-        }, 10); // Delay to apply smooth transition
-        searchIcon.innerHTML = "&times;"; // Change icon to cross
-      }
-    });
+searchIcon.addEventListener("click", () => {
+  if (searchDropdown.style.visibility === "visible") {
+    // Close dropdown
+    searchDropdown.style.top = "-30%";
+    searchDropdown.style.visibility = "hidden";
+    searchDropdown.style.opacity = "0";
 
-    const menuBtn = document.getElementById("menuBtn");
-    const closeBtn2 = document.getElementById("closeBtn2");
-    const sidebar = document.getElementById("sidebar");
+    // wapis search icon banado
+    searchIcon.classList.remove("fa-xmark", "active");
+    searchIcon.classList.add("fa-magnifying-glass");
+  } else {
+    // Open dropdown
+    searchDropdown.style.visibility = "visible";
+    setTimeout(() => {
+      searchDropdown.style.top = "0";
+      searchDropdown.style.opacity = "1";
+    }, 10);
 
-    // Open sidebar when menu icon is clicked
-    menuBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
+    // search se cross banado
+    searchIcon.classList.remove("fa-magnifying-glass");
+    searchIcon.classList.add("fa-xmark", "active");
 
-    // Close sidebar when close button inside sidebar is clicked
-    closeBtn2.addEventListener("click", () => {
-      sidebar.classList.remove("open");
-    });
+  }
+
+
+});
+
+// bahar click ya scroll pe dropdown band ho
+document.addEventListener("click", (e) => {
+  if (searchDropdown.style.visibility === "visible" &&
+      !searchDropdown.contains(e.target) &&
+      e.target !== searchIcon) {
+    searchDropdown.style.top = "-30%";
+    searchDropdown.style.visibility = "hidden";
+    searchDropdown.style.opacity = "0";
+
+    searchIcon.classList.remove("fa-xmark", "active");
+    searchIcon.classList.add("fa-magnifying-glass");
+  }
+  size()
+});
+
+window.addEventListener("scroll", () => {
+  if (searchDropdown.style.visibility === "visible") {
+    searchDropdown.style.top = "-30%";
+    searchDropdown.style.visibility = "hidden";
+    searchDropdown.style.opacity = "0";
+
+    searchIcon.classList.remove("fa-xmark", "active");
+    searchIcon.classList.add("fa-magnifying-glass");
+  }
+  size()
+});
+
+function size(){
+  if (searchIcon.classList.contains("fa-xmark")) {
+  searchIcon.style.fontSize = "30px";
+} else if (searchIcon.classList.contains("fa-magnifying-glass")) {
+  searchIcon.style.fontSize = "50px";}}
+
+
+
+// ✅ SIDEBAR
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn2 = document.getElementById("closeBtn2");
+const sidebar = document.getElementById("sidebar");
+
+// open close toggle
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
+
+// cross click pe band
+closeBtn2.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+});
+
+// bahar click pe band
+document.addEventListener("click", (e) => {
+  if (sidebar.classList.contains("open") &&
+      !sidebar.contains(e.target) &&
+      e.target !== menuBtn) {
+    sidebar.classList.remove("open");
+  }
+});
+
+// scroll pe bhi band
+window.addEventListener("scroll", () => {
+  sidebar.classList.remove("open");
+});
