@@ -4,33 +4,206 @@
     font-family: "Nata Sans", sans-serif;
 }
 
+    nav {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+.navbar {
+  position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between; /* Align the icon to the right */
+      background: transparent;
+      z-index: 1001; /* Ensure navbar is above the dropdown */
+    }
 
-.icon{
-    font-size: xx-large;
-    color: white;
-}
+    /* Search Button */
+    .search-btn {
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      background: none;
+      z-index: 1002; /* Higher z-index to ensure the icon stays on top */
+    }
 
-.icon-2{
-    color: goldenrod;
-}
+    /* Search Dropdown Styling */
+    .search-dropdown {
+      position: fixed;
+      top: -30%; /* Initially offscreen */
+      left: 0;
+      width: 100%;
+      height: 30%; /* 30% of screen height */
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 500;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column; /* Stack content vertically */
+      justify-content: center;
+      align-items: center;
+      transition: top 0.4s ease, opacity 0.4s ease; /* Smooth transition for sliding and fading */
+      visibility: hidden; /* Initially hidden */
+      opacity: 0; /* Initially transparent */
+    }
 
-nav {
+    #searchDropdown {
   position: absolute;
-  top: 0;
+  top: -30%; /* start hidden */
   left: 0;
-  width: 100%;   /* full width */
-  z-index: 1000; /* keep it above hero */
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease; /* smooth animation */
 }
 
-.nav-bar {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
-  color: white;
-  background-color: transparent;
+#searchDropdown.active {
+  top: 0;               /* slide down */
+  opacity: 1;
+  visibility: visible;
 }
+
+
+    /* Cross (X) icon styling inside the dropdown */
+    .close-btn {
+      font-size: 30px;
+      color: #222;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: absolute; /* Positioning it inside the dropdown */
+      top: 20px; /* Space from the top */
+      right: 20px; /* Space from the right */
+    }
+
+    /* Input Field Styling */
+    .search-dropdown input {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+      border: transparent;
+      border-bottom: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .menu-btn {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      background: none;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -30%;
+      width: 30%;
+      height: 100%;
+      background: #fff;
+      transition: left 0.4s ease;
+      z-index: 2000;
+      padding: 30px;
+      box-sizing: border-box;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    /* Sidebar Header */
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn, .search-btn {
+      font-size: 24px;
+      color: #222;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .search-btn{
+      color: white;
+    }
+
+    /* Menu items */
+    .menu {
+      margin-top: 60px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .menu li:first-child {
+      font-style: italic;
+      text-transform: none;
+      font-size: 16px;
+      color: #777;
+      border: none;
+    }
+
+    .menu li:hover {
+      text-decoration: 1px solid black underline;
+    }
+
+    .menu li {
+      font-size: 25px;
+      color: #000;
+    }
+
+    @media (max-width:445px) {
+        .sidebar{
+            width: 80%;
+            left: -80%;
+        }
+
+        .menu-btn .search-btn{
+            font-size: 35px;
+        }
+    }
+
+    /* tumhara pehle se existing css ka sara code yahan hoga */
+
+/* --- naya code search icon ke liye --- */
+#searchIcon {
+  color: white; /* default white */
+  cursor: pointer;
+  font-size: 30px;
+  transition: color 0.3s ease;
+}
+
+#searchIcon.active {
+  color: black; /* jab cross bane to black */
+}
+
+
+
 
 
 .hero-section{
@@ -40,6 +213,8 @@ nav {
     background-position: right;
     height: 600px;
     width: 100%;
+    position: relative;
+    top: -80px;
 }
 
 @media (max-width:445px) {
@@ -243,11 +418,9 @@ nav {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal columns */
-  gap: 40px;
-  max-width: 1200px;
-  align-items: flex-start;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 h2 {
@@ -257,13 +430,10 @@ h2 {
   text-transform: uppercase;
 }
 
-.accordion {
-  width: 100%;
-}
-
 .accordion-item {
   border-top: 1px solid #ddd;   /* 👈 added */
   border-bottom: 1px solid #ddd;
+  width: 600px;
 }
 
 .accordion-header {
@@ -310,6 +480,7 @@ h2 {
 /* Media Query for Smaller Screens */
 @media (max-width: 768px) {
   .container {
+    display: grid;
     grid-template-columns: 1fr; /* stack in 1 column */
     gap: 20px;
   }
@@ -421,167 +592,78 @@ footer div img{
   margin-bottom: 20px;
 }
 
-    nav {
-      margin: 0;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
+
 
     /* Navbar */
-    .navbar {
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between; /* Align the icon to the right */
-      background: transparent;
-      z-index: 1001; /* Ensure navbar is above the dropdown */
+    
+
+    @media (min-width: 1450px) {
+      .menu-btn,
+      #searchIcon{
+        font-size: 50px;
+      }
+
+      .hero-section{
+        top: -150px;
+        height: 900px;
+      }
+
+      #about{
+        font-size: 40px;
+        line-height: 70px;
+      }
+
+      #about>div>img{
+        width:700px;
+      }
+
+      #main-img {
+      width: 600px;
+      height: 680px;
     }
 
-    /* Search Button */
-    .search-btn {
-      font-size: 24px;
-      color: #222;
-      cursor: pointer;
-      border: none;
-      background: none;
-      z-index: 1002; /* Higher z-index to ensure the icon stays on top */
+    .btn-circle {
+      width: 100px;
+      height: 100px;
     }
 
-    /* Search Dropdown Styling */
-    .search-dropdown {
-      position: fixed;
-      top: -30%; /* Initially offscreen */
-      left: 0;
-      width: 100%;
-      height: 30%; /* 30% of screen height */
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 500;
-      padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column; /* Stack content vertically */
-      justify-content: center;
-      align-items: center;
-      transition: top 0.4s ease, opacity 0.4s ease; /* Smooth transition for sliding and fading */
-      visibility: hidden; /* Initially hidden */
-      opacity: 0; /* Initially transparent */
+    .thumb {
+      width: 170px;   /* smaller */
+      height: 190px;
     }
 
-    /* Cross (X) icon styling inside the dropdown */
-    .close-btn {
-      font-size: 30px;
-      color: #222;
-      cursor: pointer;
-      background: none;
-      border: none;
-      position: absolute; /* Positioning it inside the dropdown */
-      top: 20px; /* Space from the top */
-      right: 20px; /* Space from the right */
+    .modal img {
+      width: 750px;   /* smaller */
+      height: 850px;  /* smaller */
     }
 
-    /* Input Field Styling */
-    .search-dropdown input {
-      width: 50%;
-      padding: 10px;
-      font-size: 16px;
-      border: transparent;
-      border-bottom: 1px solid #ddd;
-      border-radius: 5px;
-      outline: none;
-    }
 
-    .menu-btn {
-      font-size: 30px;
-      cursor: pointer;
-      color: #222;
-      border: none;
-      background: none;
-    }
+    .accordion-header {
+  font-size: 40px;
+}
 
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -30%;
-      width: 30%;
-      height: 100%;
-      background: #fff;
-      transition: left 0.4s ease;
-      z-index: 2000;
-      padding: 30px;
-      box-sizing: border-box;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    }
+.sec-accordion{
+  display: flex;
+  justify-content: space-evenly;
+}
 
-    .sidebar.open {
-      left: 0;
-    }
+.accordion-content{
+  font-size: 25px;
+}
 
-    /* Sidebar Header */
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+h2{
+  font-size: 50px;
+}
 
-    .close-btn, .search-btn {
-      font-size: 24px;
-      color: #222;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
+footer div img{
+  height: 100px;
+}
 
-    /* Menu items */
-    .menu {
-      margin-top: 60px;
-      list-style: none;
-      padding: 0;
-    }
+footer{
+  height: 500px;
+}
 
-    .menu li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-      font-size: 18px;
-      font-weight: 500;
-      color: #333;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-
-    .menu li:first-child {
-      font-style: italic;
-      text-transform: none;
-      font-size: 16px;
-      color: #777;
-      border: none;
-    }
-
-    .menu li:hover {
-      text-decoration: 1px solid black underline;
-      line-height: 30px;
-    }
-
-    .menu li {
-      font-size: 25px;
-      color: #000;
-    }
-
-    @media (max-width:445px) {
-        .sidebar{
-            width: 80%;
-            left: -80%;
-        }
-
-        .menu-btn .search-btn{
-            font-size: 35px;
-        }
-    }
+#closeBtn2{
+  font-size: 50px;
+}
+  }
