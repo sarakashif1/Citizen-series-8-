@@ -110,6 +110,27 @@
       width: 8px;
       height: 8px;
     }
+
+    @media (min-width:1450px) {
+      .swiper-2,
+      .slide-1,
+      .slide-2,
+      .slide-3{
+        height: 850px;
+      }
+
+      .swiper-pagination-bullet{
+        width: 20px;
+        height: 20px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev{
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+      }
+    }
   </style>
 
 </head>
@@ -119,7 +140,8 @@
   <div class="navbar">
     <button id="menuBtn" class="menu-btn">&#9776;</button>
     <!-- Search Icon (Right Side of Navbar) -->
-    <button class="search-btn" id="searchIcon">&#128269;</button>
+    <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+
   </div>
 
   <!-- Sidebar -->
@@ -155,7 +177,7 @@
       <div id="about">
 
         <div>
-          <img src="Screenshot 2025-08-18 130502.png">
+          <img src="http://127.0.0.1:5500/images/Screenshot%202025-08-18%20130502.png">
         </div>
 
         <div>
@@ -336,4 +358,3 @@
 </body>
 
 </html>
-
