@@ -215,11 +215,25 @@ window.addEventListener("scroll", () => {
   size()
 });
 
-function size(){
-  if (searchIcon.classList.contains("fa-xmark")) {
-  searchIcon.style.fontSize = "30px";
-} else if (searchIcon.classList.contains("fa-magnifying-glass")) {
-  searchIcon.style.fontSize = "50px";}}
+function updateSearchIconSize() {
+  if (window.matchMedia("(min-width: 1450px)").matches) {
+    if (searchIcon.classList.contains("fa-xmark")) {
+      searchIcon.style.fontSize = "30px";
+    } else if (searchIcon.classList.contains("fa-magnifying-glass")) {
+      searchIcon.style.fontSize = "50px";
+    }
+  } else {
+    // optional: chhoti screen ke liye reset size
+    searchIcon.style.fontSize = "";
+  }
+}
+
+// pehli dafa run karo
+updateSearchIconSize();
+
+// jab bhi resize ho run karo
+window.addEventListener("resize", updateSearchIconSize);
+
 
 
 
