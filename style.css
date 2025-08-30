@@ -177,6 +177,13 @@
       color: #000;
     }
 
+        @media (max-width: 1024px) {
+      .sidebar{
+        width: 50%;
+        left: -50%;
+      }
+    }
+
     @media (max-width:445px) {
         .sidebar{
             width: 80%;
@@ -187,6 +194,8 @@
             font-size: 35px;
         }
     }
+
+
 
     /* tumhara pehle se existing css ka sara code yahan hoga */
 
@@ -436,6 +445,7 @@ h2 {
   width: 600px;
 }
 
+
 .accordion-header {
   display: flex;
   justify-content: space-between;
@@ -477,8 +487,14 @@ h2 {
   padding: 10px 0 20px; /* Add padding when open */
 }
 
+@media (max-width: 912px) {
+  .accordion-item{
+    width: 400px;
+  }
+}
+
 /* Media Query for Smaller Screens */
-@media (max-width: 768px) {
+@media (max-width: 830px) {
   .container {
     display: grid;
     grid-template-columns: 1fr; /* stack in 1 column */
@@ -493,7 +509,35 @@ h2 {
   .accordion-header {
     font-size: 20px; /* thoda chhota mobile pe */
   }
+
+  .accordion-item{
+    width: 700px;
+  }
 }
+
+@media (max-width: 540px) {
+  .accordion-item{
+    width: 450px;
+  }
+}
+
+@media (max-width:445px) {
+  .accordion-item{
+    width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  .accordion-item{
+    width: 330px;
+  }
+
+  #sec-accordian{
+    padding: 20px;
+  }
+}
+
+
 
 
 
@@ -597,7 +641,7 @@ footer div img{
     /* Navbar */
     
 
-    @media (min-width: 1450px) {
+    @media (min-width: 1400px) {
       .menu-btn,
       #searchIcon{
         font-size: 50px;
@@ -662,5 +706,20 @@ footer div img{
 footer{
   height: 500px;
 }
-  }
 
+.accordion-item {
+  border-top: 1px solid #ddd;   /* 👈 added */
+  border-bottom: 1px solid #ddd;
+  width: 700px;
+}
+
+.search-dropdown input {
+      width: 50%;
+      padding: 10px;
+      font-size: 35px;
+      border: transparent;
+      border-bottom: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
