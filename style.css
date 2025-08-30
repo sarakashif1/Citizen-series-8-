@@ -228,7 +228,7 @@
 
 @media (max-width:445px) {
   .hero-section{
-    background-size: 700px 800px;
+    background-size: 700px 700px;
   }
 }
 
@@ -723,3 +723,4 @@ footer{
       outline: none;
     }
   }
+
